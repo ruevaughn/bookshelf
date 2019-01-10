@@ -12,6 +12,8 @@ class Types::AuthorType < Types::BaseObject
     ([object.first_name, object.last_name].compact).join(" ")
   end
 
-  field :coordinates, Types::CoordinatesType, null: true
+  field :coordinates, Types::CoordinatesType, null: false
+
+  field :publication_years, [Int], null: false, camelize: false
 
 end

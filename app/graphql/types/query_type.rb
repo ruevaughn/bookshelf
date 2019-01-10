@@ -12,5 +12,13 @@ module Types
       Rails.logger.info context.inspect
       "Hello #{name}, it is #{context[:time]}"
     end
+
+    field :author, Types::AuthorType, null: true, description: "One Author" do
+      argument :id, ID, required: true
+    end
+
+    def author(id:)
+      Author.find(id)
+    end
   end
 end
